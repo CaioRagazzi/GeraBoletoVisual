@@ -4,7 +4,7 @@ using static System.String;
 
 namespace BoletoNetCore
 {
-    [CarteiraCodigo("09")]
+    [CarteiraCodigo("26")]
     internal class BancoBradescoCarteira09 : ICarteira<BancoBradesco>
     {
         internal static Lazy<ICarteira<BancoBradesco>> Instance { get; } = new Lazy<ICarteira<BancoBradesco>>(() => new BancoBradescoCarteira09());

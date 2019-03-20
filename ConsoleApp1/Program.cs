@@ -16,7 +16,7 @@ namespace ConsoleApp1
                 DigitoAgencia = "0",
                 Conta = "0000340",
                 DigitoConta = "0",
-                CarteiraPadrao = "09",
+                CarteiraPadrao = "26",
                 TipoCarteiraPadrao = TipoCarteira.CarteiraCobrancaSimples,
                 TipoFormaCadastramento = TipoFormaCadastramento.ComRegistro,
                 TipoImpressaoBoleto = TipoImpressaoBoleto.Empresa

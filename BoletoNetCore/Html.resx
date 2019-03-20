@@ -341,7 +341,7 @@
 						&lt;td class="barra"&gt;&lt;img src="@URLIMAGEMBARRA" /&gt;&lt;/td&gt;
 						&lt;td class="w65 Ab bc Ac"&gt;@CODIGOBANCO-@DIGITOBANCO&lt;/td&gt;
 						&lt;td class="barra"&gt;&lt;img src="@URLIMAGEMBARRA" /&gt;&lt;/td&gt;
-						&lt;td class="w450 Ar ld" valign="bottom"&gt;@LINHADIGITAVEL&lt;/td&gt;
+						&lt;td class="w450 Ar Ab ld" valign="bottom"&gt;@LINHADIGITAVEL&lt;/td&gt;
 				&lt;/tr&gt;
 		&lt;/table&gt;</value>
   </data>
@@ -505,9 +505,8 @@
 						&lt;td class="imgLogo Al"&gt;&lt;img src="@URLIMGCEDENTE" /&gt;&lt;/td&gt;
 						&lt;td class="barra"&gt;&lt;img src="@URLIMAGEMBARRA" /&gt;&lt;/td&gt;
 						&lt;td class="w65 Ab bc Ac"&gt;@CODIGOBANCO-@DIGITOBANCO&lt;/td&gt;
-						&lt;td class="barra"&gt;&lt;img src="@URLIMAGEMBARRA" /&gt;&lt;/td&gt;
-						&lt;td class="w150 cn8 Al Ab"&gt;@MENSAGEMFIXATOPOBOLETO&lt;/td&gt;
-						&lt;td class="w450 Ar Ab ld"&gt;@LINHADIGITAVEL&lt;/td&gt;
+						&lt;td class="barra"&gt;&lt;img src="@URLIMAGEMBARRA" /&gt;&lt;/td&gt;						
+						&lt;td class="w450 Ar Ab ld" valign="bottom"&gt;@LINHADIGITAVEL&lt;/td&gt;
 				&lt;/tr&gt;
 		&lt;/table&gt;</value>
   </data>

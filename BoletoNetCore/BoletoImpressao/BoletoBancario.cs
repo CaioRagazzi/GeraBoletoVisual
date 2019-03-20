@@ -736,19 +736,19 @@ namespace BoletoNetCore
             var fnBarraUrl = url + @"BoletoNetBarra.gif";
 
             //Salvo a imagem apenas 1 vez
-            if (!File.Exists(fnBarra))
-            {
-                var imgConverter = new ImageConverter();
-                var imgBuffer = (byte[])imgConverter.ConvertTo(Html.barra, typeof(byte[]));
-                var ms = new MemoryStream(imgBuffer);
+            //if (!File.Exists(fnBarra))
+            //{
+            //    var imgConverter = new ImageConverter();
+            //    var imgBuffer = (byte[])imgConverter.ConvertTo(Html.barra, typeof(byte[]));
+            //    var ms = new MemoryStream(imgBuffer);
 
-                using (Stream stream = File.Create(fnBarra))
-                {
-                    CopiarStream(ms, stream);
-                    ms.Flush();
-                    ms.Dispose();
-                }
-            }
+            //    using (Stream stream = File.Create(fnBarra))
+            //    {
+            //        CopiarStream(ms, stream);
+            //        ms.Flush();
+            //        ms.Dispose();
+            //    }
+            //}
 
             //Prepara o arquivo do código de barras para ser salvo
             var fnCodigoBarras = string.Format("{0}{1}_codigoBarras.jpg", pathServer, fileName);
@@ -813,11 +813,11 @@ namespace BoletoNetCore
             return s;
         }
 
-        public byte[] MontaBytesPDF(bool convertLinhaDigitavelToImage = false)
-        {
+        //public byte[] MontaBytesPDF(bool convertLinhaDigitavelToImage = false)
+        //{
 
-            return (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(MontaHtmlEmbedded(convertLinhaDigitavelToImage, true));
-        }
+        //    return (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(MontaHtmlEmbedded(convertLinhaDigitavelToImage, true));
+        //}
         #endregion Geração do Html OffLine
 
         public Image GeraImagemCodigoBarras(Boleto boleto)

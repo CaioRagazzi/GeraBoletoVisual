@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <Version>1.0.0-beta6</Version>
     <Authors>Boleto2Net, Tagliatti</Authors>
     <PackageLicenseUrl>https://github.com/Tagliatti/BoletoNetCore/blob/master/LICENSE</PackageLicenseUrl>
@@ -26,8 +26,7 @@
     <EmbeddedResource Include="Imagens/*" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CoreCompat.System.Drawing.v2" Version="5.2.0-preview1-r131" />
-    <PackageReference Include="NReco.PdfGenerator.LT" Version="1.1.15" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Html.Designer.cs">

@@ -81,11 +81,11 @@ namespace BoletoNetCore
 
             #region Campo 1
 
-            // POSIÇÃO 1 A 3 DO CODIGO DE BARRAS
+            // POSIÇÃO 1 A 3 DO CODIGO DE BARRAS -- IDENTIFICACAO DO BANCO
             var bbb = codigoDeBarras.Substring(0, 3);
-            // POSIÇÃO 4 DO CODIGO DE BARRAS
+            // POSIÇÃO 4 DO CODIGO DE BARRAS -- CODIGO MOEDA
             var m = codigoDeBarras.Substring(3, 1);
-            // POSIÇÃO 20 A 24 DO CODIGO DE BARRAS
+            // POSIÇÃO 20 A 24 DO CODIGO DE BARRAS -- CAMPO LIVRE (AGENCIA E PRIMEIRO DIGITO CARTEIRA)
             var ccccc = codigoDeBarras.Substring(19, 5);
             // Calculo do Dígito
             var d1 = CalcularDvModulo10(bbb + m + ccccc);
@@ -96,7 +96,7 @@ namespace BoletoNetCore
 
             #region Campo 2
 
-            //POSIÇÃO 25 A 34 DO COD DE BARRAS
+            //POSIÇÃO 25 A 34 DO COD DE BARRAS -- NUMERO DO NOSSO NUMERO SEM DIGITO VERIFICADOR
             var d2A = codigoDeBarras.Substring(24, 10);
             // Calculo do Dígito
             var d2B = CalcularDvModulo10(d2A).ToString();

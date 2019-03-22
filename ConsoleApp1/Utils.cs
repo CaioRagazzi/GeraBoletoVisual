@@ -40,8 +40,8 @@ namespace ConsoleApp1
             if (_contador % 2 != 0)
                 return new Sacado
                 {
-                    CPFCNPJ = "431.223.778-61",
-                    Nome = "Jose Almeida",
+                    CPFCNPJ = "23.322.675/0001-52",
+                    Nome = "Bruno Intermeio Burgues",
                     Observacoes = "OBSERVAÇÃO",
                     Endereco = new Endereco
                     {
@@ -70,7 +70,7 @@ namespace ConsoleApp1
             };
         }
 
-        internal static Boletos GerarBoletos(IBanco banco, int quantidadeBoletos, string aceite, int NossoNumeroInicial)
+        internal static Boletos GerarBoletos(IBanco banco, int quantidadeBoletos, string aceite, string NossoNumeroInicial)
         {
             var boletos = new Boletos
             {
@@ -81,7 +81,7 @@ namespace ConsoleApp1
             return boletos;
         }
 
-        internal static Boleto GerarBoleto(IBanco banco, int i, string aceite, int NossoNumeroInicial)
+        internal static Boleto GerarBoleto(IBanco banco, int i, string aceite, string NossoNumeroInicial)
         {
             if (aceite == "?")
                 aceite = _contador % 2 == 0 ? "N" : "A";
@@ -91,9 +91,9 @@ namespace ConsoleApp1
                 Sacado = GerarSacado(),
                 DataEmissao = DateTime.Now.AddDays(-3),
                 DataProcessamento = DateTime.Now,
-                DataVencimento = DateTime.Now.AddMonths(i),
-                ValorTitulo = (decimal)100 * i,
-                NossoNumero = NossoNumeroInicial == 0 ? "" : (NossoNumeroInicial + _proximoNossoNumero).ToString(),
+                DataVencimento = new DateTime(2019, 03, 23), //DateTime.Now.AddMonths(i),
+                ValorTitulo = (decimal)23.17, //(decimal)100 * i,
+                NossoNumero = NossoNumeroInicial == "" ? "" : NossoNumeroInicial,// (NossoNumeroInicial + _proximoNossoNumero).ToString(),
                 NumeroDocumento = "BB" + _proximoNossoNumero.ToString("D6") + (char)(64 + i),
                 EspecieDocumento = TipoEspecieDocumento.DM,
                 Aceite = aceite,
@@ -146,7 +146,7 @@ namespace ConsoleApp1
             return boleto;
         }
 
-        internal static List<StringBuilder> TestarHomologacao(IBanco banco, TipoArquivo tipoArquivo, string nomeCarteira, int quantidadeBoletos, bool gerarPDF, string aceite, int NossoNumeroInicial)
+        internal static List<StringBuilder> TestarHomologacao(IBanco banco, TipoArquivo tipoArquivo, string nomeCarteira, int quantidadeBoletos, bool gerarPDF, string aceite, string NossoNumeroInicial)
         {
             var boletos = GerarBoletos(banco, quantidadeBoletos, aceite, NossoNumeroInicial);
             List<StringBuilder> lista = new List<StringBuilder>();

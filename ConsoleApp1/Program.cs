@@ -25,7 +25,7 @@ namespace ConsoleApp1
             _banco.Cedente = Utils.GerarCedente("1213141", "", "", contaBancaria);
             _banco.FormataCedente();
 
-            List<StringBuilder> htmls = Utils.TestarHomologacao(_banco, TipoArquivo.CNAB400, "BancoBradescoCarteira09", 1, true, "?", "90740000051");
+            Utils.RenderizaBoletos(_banco, TipoArquivo.CNAB400, "BancoBradescoCarteira09", 1, true, "?", "90740000051");
         }
     }
 }

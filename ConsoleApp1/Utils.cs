@@ -70,18 +70,18 @@ namespace ConsoleApp1
             };
         }
 
-        internal static Boletos GerarBoletos(IBanco banco, int quantidadeBoletos, string aceite, string NossoNumeroInicial)
+        internal static Boletos GerarBoletos(IBanco banco, int quantidadeBoletos, string aceite, string NossoNumero)
         {
             var boletos = new Boletos
             {
                 Banco = banco
             };
             for (var i = 1; i <= quantidadeBoletos; i++)
-                boletos.Add(GerarBoleto(banco, i, aceite, NossoNumeroInicial));
+                boletos.Add(GerarBoleto(banco, i, aceite, NossoNumero));
             return boletos;
         }
 
-        internal static Boleto GerarBoleto(IBanco banco, int i, string aceite, string NossoNumeroInicial)
+        internal static Boleto GerarBoleto(IBanco banco, int i, string aceite, string NossoNumero)
         {
             if (aceite == "?")
                 aceite = _contador % 2 == 0 ? "N" : "A";
@@ -89,11 +89,11 @@ namespace ConsoleApp1
             var boleto = new Boleto(banco)
             {
                 Sacado = GerarSacado(),
-                DataEmissao = DateTime.Now.AddDays(-3),
+                DataEmissao = DateTime.Now,
                 DataProcessamento = DateTime.Now,
-                DataVencimento = new DateTime(2019, 03, 23), //DateTime.Now.AddMonths(i),
-                ValorTitulo = (decimal)23.17, //(decimal)100 * i,
-                NossoNumero = NossoNumeroInicial == "" ? "" : NossoNumeroInicial,// (NossoNumeroInicial + _proximoNossoNumero).ToString(),
+                DataVencimento = new DateTime(2019, 03, 23),
+                ValorTitulo = (decimal)23.17,
+                NossoNumero = NossoNumero == "" ? "" : NossoNumero,
                 NumeroDocumento = "BB" + _proximoNossoNumero.ToString("D6") + (char)(64 + i),
                 EspecieDocumento = TipoEspecieDocumento.DM,
                 Aceite = aceite,
@@ -146,44 +146,10 @@ namespace ConsoleApp1
             return boleto;
         }
 
-        internal static List<StringBuilder> TestarHomologacao(IBanco banco, TipoArquivo tipoArquivo, string nomeCarteira, int quantidadeBoletos, bool gerarPDF, string aceite, string NossoNumeroInicial)
+        internal static void RenderizaBoletos(IBanco banco, TipoArquivo tipoArquivo, string nomeCarteira, int quantidadeBoletos, bool gerarPDF, string aceite, string NossoNumero)
         {
-            var boletos = GerarBoletos(banco, quantidadeBoletos, aceite, NossoNumeroInicial);
-            List<StringBuilder> lista = new List<StringBuilder>();
-            //Assert.AreEqual(quantidadeBoletos, boletos.Count, "Quantidade de boletos diferente de " + quantidadeBoletos);
+            var boletos = GerarBoletos(banco, quantidadeBoletos, aceite, NossoNumero);
 
-            // Define os nomes dos arquivos, cria pasta e apaga arquivos anteriores
-            //var nomeArquivoREM = Path.Combine(Path.GetTempPath(), "Boleto2Net", $"{nomeCarteira}_{tipoArquivo}.REM");
-            
-            //if (!Directory.Exists(Path.GetDirectoryName(nomeArquivoREM)))
-            //    Directory.CreateDirectory(Path.GetDirectoryName(nomeArquivoREM));
-            //if (File.Exists(nomeArquivoREM))
-            //{
-            //    File.Delete(nomeArquivoREM);
-            //    if (File.Exists(nomeArquivoREM))
-            //        Console.WriteLine("Arquivo Remessa não foi excluído: " + nomeArquivoREM);
-            //}
-            
-
-            // Arquivo Remessa.
-            //try
-            //{
-            //    var arquivoRemessa = new ArquivoRemessa(boletos.Banco, tipoArquivo, 1);
-            //    using (var fileStream = new FileStream(nomeArquivoREM, FileMode.Create))
-            //        arquivoRemessa.GerarArquivoRemessa(boletos, fileStream);
-            //    if (!File.Exists(nomeArquivoREM))
-            //        Console.WriteLine("Arquivo Remessa não encontrado: " + nomeArquivoREM);
-            //}
-            //catch (Exception e)
-            //{
-            //    if (File.Exists(nomeArquivoREM))
-            //        File.Delete(nomeArquivoREM);
-            //    Console.WriteLine(e.InnerException.ToString());
-            //}
-
-            //if (gerarPDF)
-            //{
-            // Gera arquivo PDF
             try
             {
                 var html = new StringBuilder();
@@ -222,21 +188,12 @@ namespace ConsoleApp1
                         html.Clear();
                         contador++;
                     }
-                    //var pdf = new HtmlToPdfConverter().GeneratePdf(html.ToString()); //Licença comercial necessária para versão NET Core
-                    //using (var fs = new FileStream(nomeArquivoPDF, FileMode.Create))
-                    //    fs.Write(pdf, 0, pdf.Length);
-                    //if (!File.Exists(nomeArquivoPDF))
-                    //    Assert.Fail("Arquivo Boletos (PDF) não encontrado: " + nomeArquivoPDF);
                 }
             }
             catch (Exception e)
             {
-                //if (File.Exists(nomeArquivoPDF))
-                //    File.Delete(nomeArquivoPDF);
                 Console.WriteLine(e.InnerException.ToString());
             }
-            return lista;
-            //}
         }
     }
 }

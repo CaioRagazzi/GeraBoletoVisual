@@ -394,7 +394,7 @@ namespace BoletoNetCore {
         ///						&lt;td class=&quot;pL6  w409&quot;&gt;Sacador / Avalista &lt;b class=&quot;cpN&quot;&gt;@AVALISTA&lt;/b&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;w250 Ar&quot;&gt;Autenticação mecânica - &lt;b class=&quot;cpN&quot;&gt;Ficha de Compensação&lt;/b&gt;&lt;/td&gt;
         ///				&lt;/tr&gt;
-        ///				&lt;tr class=&quot;h13&quot;&gt;&lt;td colspan=&quot;3&quot; /&gt;&lt;/tr&gt;
+        ///				&lt;!--&lt;tr class=&quot;h13&quot;&gt;&lt;td colspan=&quot;3&quot; /&gt;&lt;/tr&gt;--&gt;
         ///		&lt;/table&gt;.
         /// </summary>
         internal static string ReciboCedenteParte10 {
@@ -418,7 +418,7 @@ namespace BoletoNetCore {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;table class=&quot;ctN w666&quot;&gt;
-        ///				&lt;tr class=&quot;h13&quot;&gt;&lt;td /&gt;&lt;/tr&gt;
+        ///				&lt;!--&lt;tr class=&quot;h13&quot;&gt;&lt;td /&gt;&lt;/tr&gt;--&gt;
         ///				&lt;tr&gt;&lt;td class=&quot;Ar&quot;&gt;Corte na linha pontilhada&lt;/td&gt;&lt;/tr&gt;
         ///				&lt;tr&gt;&lt;td class=&quot;cut&quot; /&gt;&lt;/tr&gt;
         ///		&lt;/table&gt;
@@ -500,7 +500,7 @@ namespace BoletoNetCore {
         ///   Looks up a localized string similar to &lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr class=&quot;ct h13&quot;&gt;
         ///						&lt;td class=&quot;w72&quot;&gt;Uso do banco&lt;/td&gt;
-        ///						&lt;td class=&quot;w34&quot;&gt;C I P&lt;/td&gt;
+        ///						&lt;!--&lt;td class=&quot;w34&quot;&gt;C I P&lt;/td&gt;--&gt;
         ///						&lt;td class=&quot;w83&quot;&gt;Carteira&lt;/td&gt;
         ///						&lt;td class=&quot;w53&quot;&gt;Espécie&lt;/td&gt;
         ///						&lt;td class=&quot;w123&quot;&gt;Quantidade&lt;/td&gt;
@@ -509,11 +509,10 @@ namespace BoletoNetCore {
         ///				&lt;/tr&gt;
         ///				&lt;tr class=&quot;cp h12 rBb&quot;&gt;
         ///						&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-        ///						&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        ///						&lt;!--&lt;td&gt;&amp;nbsp;&lt;/td&gt;--&gt;
         ///						&lt;td class=&quot;Al&quot;&gt;@CARTEIRA&lt;/td&gt;
         ///						&lt;td class=&quot;Al&quot;&gt;@ESPECIE&lt;/td&gt;
-        ///						&lt;td&gt;@QUANTIDADE&lt;/td&gt;
-        ///			 [rest of string was truncated]&quot;;.
+        ///						&lt;td&gt;@QUANTI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ReciboCedenteParte5 {
             get {

@@ -240,11 +240,11 @@ img {
 }
 
 .w126 {
-	width: 126px;
+	width: 131px;
 }
 
 .w128 {
-	width: 128px;
+	width: 120.4px;
 }
 
 .w132 {
@@ -260,7 +260,7 @@ img {
 }
 
 .w163 {
-	width: 163px;
+	width: 81px;
 }
 
 .w164 {
@@ -268,23 +268,23 @@ img {
 }
 
 .w167 {
-	width: 167px;
+	width: 160px;
 }
 
 .w169 {
-	width: 169px;
+	width: 144px;
 }
 
 .w171 {
-	width: 171px;
+	width: 175px;
 }
 
 .w174 {
-	width: 174px;
+	width: 175px;
 }
 
 .w180 {
-	width: 180px;
+	width: 176px;
 }
 
 .w182 {
@@ -340,7 +340,8 @@ img {
 }
 
 .w666 {
-	width: 100%;
+    /*width: 100%;*/
+    width: 666px;
 }
 
 .w667 {

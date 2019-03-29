@@ -15,7 +15,7 @@ namespace ConsoleApp1
                 Agencia = "3392",
                 DigitoAgencia = "0",
                 Conta = "0000340",
-                DigitoConta = "0",
+                DigitoConta = "9",
                 CarteiraPadrao = "09",
                 TipoCarteiraPadrao = TipoCarteira.CarteiraCobrancaSimples,
                 TipoFormaCadastramento = TipoFormaCadastramento.ComRegistro,
@@ -25,7 +25,7 @@ namespace ConsoleApp1
             _banco.Cedente = Utils.GerarCedente("1213141", "", "", contaBancaria);
             _banco.FormataCedente();
 
-            Utils.RenderizaBoletos(_banco, TipoArquivo.CNAB400, "BancoBradescoCarteira09", 1, true, "?", "90740000051");
+            Utils.RenderizaBoletos(_banco, TipoArquivo.CNAB400, "BancoBradescoCarteira09", 1, true, "N", "00000012345");
         }
     }
 }

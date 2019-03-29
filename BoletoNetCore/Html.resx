@@ -351,7 +351,7 @@
 						&lt;td class="pL6  w409"&gt;Sacador / Avalista &lt;b class="cpN"&gt;@AVALISTA&lt;/b&gt;&lt;/td&gt;
 						&lt;td class="w250 Ar"&gt;Autenticação mecânica - &lt;b class="cpN"&gt;Ficha de Compensação&lt;/b&gt;&lt;/td&gt;
 				&lt;/tr&gt;
-				&lt;tr class="h13"&gt;&lt;td colspan="3" /&gt;&lt;/tr&gt;
+				&lt;!--&lt;tr class="h13"&gt;&lt;td colspan="3" /&gt;&lt;/tr&gt;--&gt;
 		&lt;/table&gt;</value>
   </data>
   <data name="ReciboCedenteParte11" xml:space="preserve">
@@ -363,7 +363,7 @@
   </data>
   <data name="ReciboCedenteParte12" xml:space="preserve">
     <value>&lt;table class="ctN w666"&gt;
-				&lt;tr class="h13"&gt;&lt;td /&gt;&lt;/tr&gt;
+				&lt;!--&lt;tr class="h13"&gt;&lt;td /&gt;&lt;/tr&gt;--&gt;
 				&lt;tr&gt;&lt;td class="Ar"&gt;Corte na linha pontilhada&lt;/td&gt;&lt;/tr&gt;
 				&lt;tr&gt;&lt;td class="cut" /&gt;&lt;/tr&gt;
 		&lt;/table&gt;
@@ -424,7 +424,7 @@
     <value>&lt;table class="w666"&gt;
 				&lt;tr class="ct h13"&gt;
 						&lt;td class="w72"&gt;Uso do banco&lt;/td&gt;
-						&lt;td class="w34"&gt;C I P&lt;/td&gt;
+						&lt;!--&lt;td class="w34"&gt;C I P&lt;/td&gt;--&gt;
 						&lt;td class="w83"&gt;Carteira&lt;/td&gt;
 						&lt;td class="w53"&gt;Espécie&lt;/td&gt;
 						&lt;td class="w123"&gt;Quantidade&lt;/td&gt;
@@ -433,7 +433,7 @@
 				&lt;/tr&gt;
 				&lt;tr class="cp h12 rBb"&gt;
 						&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-						&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+						&lt;!--&lt;td&gt;&amp;nbsp;&lt;/td&gt;--&gt;
 						&lt;td class="Al"&gt;@CARTEIRA&lt;/td&gt;
 						&lt;td class="Al"&gt;@ESPECIE&lt;/td&gt;
 						&lt;td&gt;@QUANTIDADE&lt;/td&gt;

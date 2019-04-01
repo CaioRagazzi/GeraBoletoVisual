@@ -140,7 +140,8 @@ namespace BoletoNetCore
         {
             try
             {
-                return $"{cep.Substring(0, 2)}{cep.Substring(2, 3)}-{cep.Substring(5, 3)}";
+                var cepFormatado = $"{cep.Substring(0, 2)}{cep.Substring(2, 3)}-{cep.Substring(5, 3)}";
+                return cepFormatado;
             }
             catch
             {

@@ -529,11 +529,11 @@ namespace BoletoNetCore {
         ///						&lt;/td&gt;
         ///						&lt;td class=&quot;w182&quot;&gt;
         ///								&lt;div class=&quot;t&quot;&gt;(-) Desconto / Abatimentos&lt;/div&gt;
-        ///								&lt;div class=&quot;c BB&quot;&gt;@DESCONTOS&lt;/div&gt;
+        ///								&lt;div class=&quot;c BB Ar&quot;&gt;@DESCONTOS&lt;/div&gt;
         ///								&lt;div class=&quot;t&quot;&gt;(-) Outras deduções&lt;/div&gt;
-        ///								&lt;div class=&quot;c BB&quot;&gt;@OUTRASDEDUCOES&lt;/div&gt;
+        ///								&lt;div class=&quot;c BB Ar&quot;&gt;@OUTRASDEDUCOES&lt;/div&gt;
         ///								&lt;div class=&quot;t&quot;&gt;(+) Mora / Multa&lt;/div&gt;
-        ///								&lt;div clas [rest of string was truncated]&quot;;.
+        ///								&lt;di [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ReciboCedenteParte6 {
             get {
@@ -711,13 +711,13 @@ namespace BoletoNetCore {
         ///						&lt;td class=&quot;w113&quot;&gt;(+) Outros acréscimos&lt;/td&gt;
         ///						&lt;td class=&quot;w171&quot;&gt;(=) Valor cobrado&lt;/td&gt;
         ///				&lt;/tr&gt;
-        ///				&lt;tr class=&quot;cp h12 rBb Ab&quot;&gt;
+        ///				&lt;tr class=&quot;cp h12 rBb&quot;&gt;
         ///						&lt;td&gt;@DESCONTOS&lt;/td&gt;
         ///						&lt;td&gt;@OUTRASDEDUCOES&lt;/td&gt;
         ///						&lt;td&gt;@MORAMULTA&lt;/td&gt;
         ///						&lt;td&gt;@OUTROSACRESCIMOS&lt;/td&gt;
         ///						&lt;td class=&quot;Ar&quot;&gt;&amp;nbsp;@VALORCOBRADO&lt;/td&gt;
-        ///				&lt;/ [rest of string was truncated]&quot;;.
+        ///				&lt;/tr&gt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ReciboSacadoParte5 {
             get {

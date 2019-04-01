@@ -356,17 +356,32 @@ namespace BoletoNetCore
                 .Replace("@QUANTIDADE", (Boleto.QuantidadeMoeda == 0 ? "" : Boleto.QuantidadeMoeda.ToString()))
                 .Replace("@VALORDOCUMENTO", Boleto.ValorMoeda)
                 .Replace("@=VALORDOCUMENTO", (Boleto.ValorTitulo == 0 ? "" : Boleto.ValorTitulo.ToString("R$ ##,##0.00")))
-                .Replace("@VALORCOBRADO", "")
-                .Replace("@OUTROSACRESCIMOS", "")
-                .Replace("@OUTRASDEDUCOES", "")
-                .Replace("@DESCONTOS", "")
+                .Replace("@VALORCOBRADO",
+
+                    Decimal.Subtract
+                    (
+                        Decimal.Add
+                        (
+                            Boleto.ValorTitulo, Decimal.Add
+                                                (
+                                                    (decimal)10.00, Boleto.ValorOutrosCreditos
+                                                )
+                        ),
+                        Decimal.Add
+                        (
+                            Boleto.ValorAbatimento, Boleto.ValorOutrasDespesas
+                        )
+                    ).ToString("R$ ##,##0.00"))
+                .Replace("@OUTROSACRESCIMOS", Boleto.ValorOutrosCreditos.ToString("R$ ##,##0.00"))
+                .Replace("@OUTRASDEDUCOES", Boleto.ValorOutrasDespesas.ToString("R$ ##,##0.00"))
+                .Replace("@DESCONTOS", Boleto.ValorAbatimento.ToString("R$ ##,##0.00"))
                 .Replace("@AGENCIACONTA", Boleto.Banco.Cedente.CodigoFormatado)
                 .Replace("@SACADO", sacado)
                 .Replace("@ENDERECOSACADO", enderecoSacado)
                 .Replace("@AVALISTA", avalista)
                 .Replace("@AGENCIACODIGOCEDENTE", Boleto.Banco.Cedente.CodigoFormatado)
                 .Replace("@CPFCNPJ", Boleto.Banco.Cedente.CPFCNPJ)
-                .Replace("@MORAMULTA", "")
+                .Replace("@MORAMULTA", ((decimal)10.00).ToString("R$ ##,##0.00"))
                 .Replace("@AUTENTICACAOMECANICA", "")
                 .Replace("@USODOBANCO", Boleto.UsoBanco)
                 .Replace("@IMAGEMCODIGOBARRA", imagemCodigoBarras)
@@ -648,7 +663,7 @@ namespace BoletoNetCore
                 //}
             }
 
-            var fnCodigoBarras = Path.GetTempFileName();
+            var fnCodigoBarras = Path.ChangeExtension(Path.GetTempFileName(), ".jpg");
             var cb = new BarCode2of5i(Boleto.CodigoBarra.CodigoDeBarras, 1, 50, Boleto.CodigoBarra.CodigoDeBarras.Length);
             cb.ToBitmap().Save(fnCodigoBarras);
 

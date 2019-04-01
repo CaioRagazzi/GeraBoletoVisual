@@ -50,7 +50,7 @@ namespace ConsoleApp1
                         Bairro = "Chácara Inglesa",
                         Cidade = "São Paulo",
                         UF = "SP",
-                        CEP = "04140-110"
+                        CEP = "04140110"
                     }
                 };
             return new Sacado
@@ -108,7 +108,13 @@ namespace ConsoleApp1
                 PercentualJurosDia = (decimal)0.2,
                 ValorJurosDia = (decimal)(100 * i * (0.2 / 100)),
                 MensagemArquivoRemessa = "Mensagem para o arquivo remessa",
-                NumeroControleParticipante = "CHAVEPRIMARIA=" + _proximoNossoNumero
+                NumeroControleParticipante = "CHAVEPRIMARIA=" + _proximoNossoNumero,
+                ValorAbatimento = (decimal)03.00,
+                ValorOutrasDespesas = (decimal)08.00,
+                ValorOutrosCreditos = (decimal)06.00,
+                ValorPagoCredito = (decimal)01.00,
+                CarteiraImpressaoBoleto = "009"
+
             };
             // Mensagem - Instruções do Caixa
             StringBuilder msgCaixa = new StringBuilder();
@@ -163,7 +169,9 @@ namespace ConsoleApp1
                         MostrarComprovanteEntrega = false,
                         MostrarEnderecoCedente = false,
                         ExibirDemonstrativo = false,
-                        OcultarEnderecoSacado = false
+                        OcultarEnderecoSacado = false,
+                        MostrarCodigoCarteira = true,
+                        
                     })
                     {
                         var nomeArquivo = Path.Combine(Path.GetTempPath(), "Boleto2Net", $"{nomeCarteira}_{tipoArquivo}_{contador}.html");
@@ -177,7 +185,7 @@ namespace ConsoleApp1
 
 
                         html.Append("<div style=\"page-break-after: always;\">");
-                        html.Append(boletoParaImpressao.MontaHtml());
+                        html.Append(boletoParaImpressao.MontaHtmlEmbedded());
                         html.Append("</div>");
 
                         using (StreamWriter sw = new StreamWriter(nomeArquivo))

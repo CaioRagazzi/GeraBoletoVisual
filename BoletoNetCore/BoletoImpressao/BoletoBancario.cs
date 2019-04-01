@@ -357,7 +357,6 @@ namespace BoletoNetCore
                 .Replace("@VALORDOCUMENTO", Boleto.ValorMoeda)
                 .Replace("@=VALORDOCUMENTO", (Boleto.ValorTitulo == 0 ? "" : Boleto.ValorTitulo.ToString("R$ ##,##0.00")))
                 .Replace("@VALORCOBRADO",
-
                     Decimal.Subtract
                     (
                         Decimal.Add
@@ -422,7 +421,7 @@ namespace BoletoNetCore
         /// Monta o Header de um email com pelo menos um boleto dentro.
         /// </summary>
         /// <param name="saida">StringBuilder onde o conteudo sera salvo.</param>
-        protected static void HtmlOfflineHeader(StringBuilder html, bool usaCsspdf = false)
+        protected static void HtmlOfflineHeader(StringBuilder html, bool usaCsspdf = false, bool usaCssHtml = true)
         {
             html.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
             html.Append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
@@ -432,18 +431,22 @@ namespace BoletoNetCore
             html.Append("    <title>Boleto.Net</title>\n");
 
             #region Css
+            if (usaCssHtml)
             {
-                var arquivoCss = usaCsspdf ? "BoletoNetCore.BoletoImpressao.BoletoNetPDF.css" : "BoletoNetCore.BoletoImpressao.BoletoNet.css";
-                var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(arquivoCss);
-
-                using (var sr = new StreamReader(stream))
                 {
-                    html.Append("<style>\n");
-                    html.Append(sr.ReadToEnd());
-                    html.Append("</style>\n");
-                    sr.Close();
-                    sr.Dispose();
+                    var arquivoCss = usaCsspdf ? "BoletoNetCore.BoletoImpressao.BoletoNetPDF.css" : "BoletoNetCore.BoletoImpressao.BoletoNet.css";
+                    var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(arquivoCss);
+
+                    using (var sr = new StreamReader(stream))
+                    {
+                        html.Append("<style>\n");
+                        html.Append(sr.ReadToEnd());
+                        html.Append("</style>\n");
+                        sr.Close();
+                        sr.Dispose();
+                    }
                 }
+
             }
             #endregion Css
 
@@ -712,7 +715,7 @@ namespace BoletoNetCore
                     if (url.Substring(0, 1) != "/")
                         url = url + "/";
                     //Mapeia o caminho físico dos arquivos
-//                    pathServer = MapPathSecure(string.Format("~{0}", url));
+                    //                    pathServer = MapPathSecure(string.Format("~{0}", url));
                 }
 
                 //Verifica se o caminho existe
@@ -796,7 +799,7 @@ namespace BoletoNetCore
             var streamLogo = assembly.GetManifestResourceStream("BoletoNetCore.Imagens." + Boleto.Banco.Codigo.ToString("000") + ".jpg");
             var base64Logo = Convert.ToBase64String(new BinaryReader(streamLogo).ReadBytes((int)streamLogo.Length));
             var fnLogo = string.Format("data:image/gif;base64,{0}", base64Logo);
-//
+            //
             var streamBarra = assembly.GetManifestResourceStream("BoletoNetCore.Imagens.barra.gif");
             var base64Barra = Convert.ToBase64String(new BinaryReader(streamBarra).ReadBytes((int)streamBarra.Length));
             var fnBarra = string.Format("data:image/gif;base64,{0}", base64Barra);
@@ -854,7 +857,7 @@ namespace BoletoNetCore
 
         public void Dispose()
         {
-            
+
         }
     }
 }

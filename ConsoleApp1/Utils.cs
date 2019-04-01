@@ -112,7 +112,6 @@ namespace ConsoleApp1
                 ValorAbatimento = (decimal)03.00,
                 ValorOutrasDespesas = (decimal)08.00,
                 ValorOutrosCreditos = (decimal)06.00,
-                ValorPagoCredito = (decimal)01.00,
                 CarteiraImpressaoBoleto = "009"
 
             };
@@ -170,7 +169,7 @@ namespace ConsoleApp1
                         MostrarEnderecoCedente = false,
                         ExibirDemonstrativo = false,
                         OcultarEnderecoSacado = false,
-                        MostrarCodigoCarteira = true,
+                        MostrarCodigoCarteira = true
                         
                     })
                     {

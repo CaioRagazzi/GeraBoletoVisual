@@ -151,7 +151,7 @@ namespace ConsoleApp1
             return boleto;
         }
 
-        internal static void RenderizaBoletos(IBanco banco, TipoArquivo tipoArquivo, string nomeCarteira, int quantidadeBoletos, bool gerarPDF, string aceite, string NossoNumero)
+        internal static void RenderizaBoletos(IBanco banco, TipoArquivo tipoArquivo, string nomeCarteira, int quantidadeBoletos, string aceite, string NossoNumero)
         {
             var boletos = GerarBoletos(banco, quantidadeBoletos, aceite, NossoNumero);
 

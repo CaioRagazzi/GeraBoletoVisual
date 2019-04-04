@@ -404,7 +404,7 @@ namespace BoletoNetCore
         protected StringBuilder HtmlOffLine(string textoNoComecoDoEmail, string srcLogo, string srcBarra, string srcCodigoBarra, bool usaCsspdf = false)
         {//protected StringBuilder HtmlOffLine(string srcCorte, string srcLogo, string srcBarra, string srcPonto, string srcBarraInterna, string srcCodigoBarra)
             var html = new StringBuilder();
-            HtmlOfflineHeader(html, usaCsspdf);
+            //HtmlOfflineHeader(html, usaCsspdf);
             if (!string.IsNullOrEmpty(textoNoComecoDoEmail))
             {
                 html.Append(textoNoComecoDoEmail);
@@ -421,7 +421,7 @@ namespace BoletoNetCore
         /// Monta o Header de um email com pelo menos um boleto dentro.
         /// </summary>
         /// <param name="saida">StringBuilder onde o conteudo sera salvo.</param>
-        protected static void HtmlOfflineHeader(StringBuilder html, bool usaCsspdf = false, bool usaCssHtml = true)
+        protected static void HtmlOfflineHeader(StringBuilder html, bool usaCsspdf = false, bool usaCssHtml = false)
         {
             html.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
             html.Append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");

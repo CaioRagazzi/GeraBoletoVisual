@@ -93,9 +93,11 @@ namespace ConsoleApp1
                 CarteiraImpressaoBoleto = "009",
             };
 
-            Utils.RenderizaBoletos(_banco, TipoArquivo.CNAB400, "BancoBradescoCarteira09", 1, "N", "00000012345");
+            //Utils.RenderizaBoletos(_banco, TipoArquivo.CNAB400, "BancoBradescoCarteira09", 1, "N", "00000012345");
 
             //var html = Utils2.RenderizaBoletos(boleto, TipoArquivo.CNAB400, "BancoBradescoCarteira09");
+
+            var html = BoletoNetCore.Util.BoletoHtml.RenderizaBoletos(boleto, TipoArquivo.CNAB400, "BancoBradescoCarteira09");
         }
     }
 }

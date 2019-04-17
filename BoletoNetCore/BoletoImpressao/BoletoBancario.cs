@@ -401,10 +401,10 @@ namespace BoletoNetCore
         /// <param name="srcBarra">Local apontado pela imagem de barra.</param>
         /// <param name="srcCodigoBarra">Local apontado pela imagem do código de barras.</param>
         /// <returns>StringBuilder conténdo o código html do boleto bancário.</returns>
-        protected StringBuilder HtmlOffLine(string textoNoComecoDoEmail, string srcLogo, string srcBarra, string srcCodigoBarra, bool usaCsspdf = false)
+        protected StringBuilder HtmlOffLine(string textoNoComecoDoEmail, string srcLogo, string srcBarra, string srcCodigoBarra, bool usaCsspdf = false, bool usaCssHtml = false)
         {//protected StringBuilder HtmlOffLine(string srcCorte, string srcLogo, string srcBarra, string srcPonto, string srcBarraInterna, string srcCodigoBarra)
             var html = new StringBuilder();
-            //HtmlOfflineHeader(html, usaCsspdf);
+            HtmlOfflineHeader(html, usaCsspdf, usaCssHtml);
             if (!string.IsNullOrEmpty(textoNoComecoDoEmail))
             {
                 html.Append(textoNoComecoDoEmail);
@@ -421,7 +421,7 @@ namespace BoletoNetCore
         /// Monta o Header de um email com pelo menos um boleto dentro.
         /// </summary>
         /// <param name="saida">StringBuilder onde o conteudo sera salvo.</param>
-        protected static void HtmlOfflineHeader(StringBuilder html, bool usaCsspdf = false, bool usaCssHtml = false)
+        protected static void HtmlOfflineHeader(StringBuilder html, bool usaCsspdf = false, bool usaCssHtml = true)
         {
             html.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
             html.Append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
@@ -792,7 +792,7 @@ namespace BoletoNetCore
         /// <criacao>23/01/2014</criacao>
         /// <alteracao>08/08/2014</alteracao>
 
-        public string MontaHtmlEmbedded(bool convertLinhaDigitavelToImage = false, bool usaCsspdf = false)
+        public string MontaHtmlEmbedded(bool convertLinhaDigitavelToImage = false, bool usaCsspdf = false, bool usaCssHtml = false)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
@@ -821,7 +821,7 @@ namespace BoletoNetCore
                 Boleto.CodigoBarra.LinhaDigitavel = @"<img style=""max-width:420px; margin-bottom: 2px"" src=" + fnLinha + " />";
             }
 
-            var s = HtmlOffLine(null, fnLogo, fnBarra, fnCodigoBarras, usaCsspdf).ToString();
+            var s = HtmlOffLine(null, fnLogo, fnBarra, fnCodigoBarras, usaCsspdf, usaCssHtml).ToString();
 
             if (convertLinhaDigitavelToImage)
             {

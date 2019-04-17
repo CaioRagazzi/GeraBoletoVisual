@@ -10,9 +10,8 @@ namespace BoletoNetCore.Util
 
         private static int _proximoNossoNumero = 1;
 
-        public static string RenderizaBoletos(Boleto boleto, TipoArquivo tipoArquivo, string nomeCarteira)
+        public static string RenderizaBoletos(Boleto boleto, bool usaCssHtml)
         {
-            var boletoParaImPressao = GerarBoleto(boleto);
 
             try
             {
@@ -32,7 +31,7 @@ namespace BoletoNetCore.Util
                 {
 
                     html.Append("<div style=\"page-break-after: always;\">");
-                    html.Append(boletoParaImpressao.MontaHtmlEmbedded());
+                    html.Append(boletoParaImpressao.MontaHtmlEmbedded(usaCssHtml: usaCssHtml));
                     html.Append("</div>");
                 }
 

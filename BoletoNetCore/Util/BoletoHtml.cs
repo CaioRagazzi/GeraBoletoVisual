@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BoletoNetCore;
+using System;
 using System.Text;
 
 namespace BoletoNetCore.Util
 {
     public static class BoletoHtml
     {
-        private static int _contador = 1;
-
-        private static int _proximoNossoNumero = 1;
-
-        public static string RenderizaBoletos(Boleto boleto, bool usaCssHtml)
+        private static string RenderizaBoletos(Boleto boleto)
         {
+            var boletoFormatado = FormataBoleto(boleto);
 
             try
             {
@@ -19,19 +16,18 @@ namespace BoletoNetCore.Util
 
                 using (var boletoParaImpressao = new BoletoBancario
                 {
-                    Boleto = boleto,
+                    Boleto = boletoFormatado,
                     OcultarInstrucoes = true,
                     MostrarComprovanteEntrega = false,
                     MostrarEnderecoCedente = false,
                     ExibirDemonstrativo = false,
                     OcultarEnderecoSacado = false,
                     MostrarCodigoCarteira = true
-
                 })
                 {
 
                     html.Append("<div style=\"page-break-after: always;\">");
-                    html.Append(boletoParaImpressao.MontaHtmlEmbedded(usaCssHtml: usaCssHtml));
+                    html.Append(boletoParaImpressao.MontaHtmlEmbedded());
                     html.Append("</div>");
                 }
 
@@ -45,12 +41,12 @@ namespace BoletoNetCore.Util
             }
         }
 
-        internal static Boleto GerarBoleto(Boleto boleto)
+        private static Boleto FormataBoleto(Boleto boleto)
         {
             var aceite = boleto.Aceite;
 
             if (aceite == "?")
-                aceite = _contador % 2 == 0 ? "N" : "A";
+                boleto.Aceite = "N";
 
             // Mensagem - Instruções do Caixa
             StringBuilder msgCaixa = new StringBuilder();
@@ -60,13 +56,21 @@ namespace BoletoNetCore.Util
                 msgCaixa.AppendLine($"Cobrar multa de {boleto.ValorMulta.ToString("R$ ##,##0.00")} após o vencimento. ");
             if (boleto.ValorJurosDia > 0)
                 msgCaixa.AppendLine($"Cobrar juros de {boleto.ValorJurosDia.ToString("R$ ##,##0.00")} por dia de atraso. ");
+            if (!String.IsNullOrEmpty(boleto.ComplementoInstrucao1))
+                msgCaixa.AppendLine("<br/>" + boleto.ComplementoInstrucao1);
+            if (!String.IsNullOrEmpty(boleto.ComplementoInstrucao2))
+                msgCaixa.AppendLine("<br/>" + boleto.ComplementoInstrucao2);
+            if (!String.IsNullOrEmpty(boleto.ComplementoInstrucao3))
+                msgCaixa.AppendLine("<br/>" + boleto.ComplementoInstrucao3);
+            if (!String.IsNullOrEmpty(boleto.ComplementoInstrucao4))
+                msgCaixa.AppendLine("<br/>" + boleto.ComplementoInstrucao4);
             boleto.MensagemInstrucoesCaixa = msgCaixa.ToString();
             // Avalista
-            if (_contador % 3 == 0)
-            {
-                boleto.Avalista = boleto.Sacado;
-                boleto.Avalista.Nome = boleto.Avalista.Nome.Replace("Sacado", "Avalista");
-            }
+            //if (_contador % 3 == 0)
+            //{
+            //    boleto.Avalista = boleto.Sacado;
+            //    boleto.Avalista.Nome = boleto.Avalista.Nome.Replace("Sacado", "Avalista");
+            //}
             // Grupo Demonstrativo do Boleto
             var grupoDemonstrativo = new GrupoDemonstrativo { Descricao = "GRUPO 1" };
             grupoDemonstrativo.Itens.Add(new ItemDemonstrativo { Descricao = "Grupo 1, Item 1", Referencia = boleto.DataEmissao.AddMonths(-1).Month + "/" + boleto.DataEmissao.AddMonths(-1).Year, Valor = boleto.ValorTitulo * (decimal)0.15 });
@@ -83,9 +87,100 @@ namespace BoletoNetCore.Util
             boleto.Demonstrativos.Add(grupoDemonstrativo);
 
             boleto.ValidarDados();
-            _contador++;
-            _proximoNossoNumero++;
             return boleto;
+        }
+
+        public static string GeraBoleto(Model.Boleto boletoModel)
+        {
+            IBanco _banco;
+            var nossoNumero = boletoModel.NossoNumero;
+            var aceite = "?";
+
+            var contaBancaria = new ContaBancaria
+            {
+                Agencia = "3392",
+                DigitoAgencia = "0",
+                Conta = "0000340",
+                DigitoConta = "9",
+                CarteiraPadrao = "09",
+                TipoCarteiraPadrao = TipoCarteira.CarteiraCobrancaSimples,
+                TipoFormaCadastramento = TipoFormaCadastramento.ComRegistro,
+                TipoImpressaoBoleto = TipoImpressaoBoleto.Empresa
+            };
+
+            var cedente = new Cedente
+            {
+                //deixar fixo valores intermeio
+                CPFCNPJ = boletoModel.ClienteCedente.CpfCnpj,
+                Nome = boletoModel.ClienteCedente.NomeRazao,
+                Codigo = "Codigo Cedente", //ajustar
+                CodigoDV = "Codigo DV Cedente", //ajustar
+                Endereco = new Endereco
+                {
+                    LogradouroEndereco = boletoModel.EnderecoLogradouro,
+                    LogradouroNumero = boletoModel.NumeroLogradouro,
+                    LogradouroComplemento = boletoModel.ComeplementoLogradouro,
+                    Bairro = boletoModel.BairroLogradouro,
+                    Cidade = boletoModel.CidadeLogradouro,
+                    UF = boletoModel.EstadoLogradouro,
+                    CEP = boletoModel.CepLogradouro
+                },
+                ContaBancaria = contaBancaria
+            };
+
+            var sacado = new Sacado
+            {
+                CPFCNPJ = boletoModel.DocumentoSacado,
+                Nome = boletoModel.NomeSacado,
+                Observacoes = "",
+                Endereco = new Endereco
+                {
+                    LogradouroEndereco = boletoModel.EnderecoLogradouro,
+                    LogradouroNumero = boletoModel.NumeroLogradouro,
+                    LogradouroComplemento = boletoModel.ComeplementoLogradouro,
+                    Bairro = boletoModel.BairroLogradouro,
+                    Cidade = boletoModel.CidadeLogradouro,
+                    UF = boletoModel.EstadoLogradouro,
+                    CEP = boletoModel.CepLogradouro
+                }
+            };
+
+            _banco = Banco.Instancia(Bancos.Bradesco);
+            _banco.Cedente = cedente;
+            _banco.FormataCedente();
+
+            var boleto = new Boleto(_banco)
+            {
+                Sacado = sacado,
+                DataEmissao = boletoModel.DataCadastro,
+                DataProcessamento = Convert.ToDateTime(boletoModel.DataProcessamento),
+                DataVencimento = boletoModel.DataVencimento,
+                ValorTitulo = boletoModel.ValorBoleto,
+                NossoNumero = nossoNumero == "" ? "" : nossoNumero,
+                NumeroDocumento = boletoModel.NumeroDocumento,
+                Aceite = aceite,
+                ComplementoInstrucao1 = boletoModel.Instrucao1,
+                ComplementoInstrucao2 = boletoModel.Instrucao2,
+                ComplementoInstrucao3 = boletoModel.Instrucao3,
+                ComplementoInstrucao4 = boletoModel.Instrucao4,
+                PercentualMulta = boletoModel.PercentualMulta,
+                ValorMulta = boletoModel.ValorMulta,
+                PercentualJurosDia = boletoModel.PercentualJuros,
+                ValorJurosDia = boletoModel.ValorJuros,
+                EspecieDocumento = TipoEspecieDocumento.DM,
+                CarteiraImpressaoBoleto = "009", //ajustar
+                //DataDesconto = DateTime.Now.AddMonths(2), //ajustar
+                //ValorDesconto = (decimal)(100 * 2 * 0.10), //ajustar
+                //DataJuros = DateTime.Now.AddMonths(2), //ajustar
+                //DataMulta = new DateTime(2019, 03, 20), //ajustar
+                //MensagemArquivoRemessa = "Mensagem para o arquivo remessa", //ajustar
+                //NumeroControleParticipante = "CHAVEPRIMARIA=" + 2, //ajustar
+                //ValorAbatimento = (decimal)03.00, //ajustar
+                //ValorOutrasDespesas = (decimal)08.00, //ajustar
+                //ValorOutrosCreditos = (decimal)06.00, //ajustar
+            };
+
+            return RenderizaBoletos(boleto);
         }
     }
 }

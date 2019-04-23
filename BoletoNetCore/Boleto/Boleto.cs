@@ -108,6 +108,8 @@ namespace BoletoNetCore
         public string ComplementoInstrucao2 { get; set; } = string.Empty;
         public string CodigoInstrucao3 { get; set; } = string.Empty;
         public string ComplementoInstrucao3 { get; set; } = string.Empty;
+        public string CodigoInstrucao4 { get; set; } = string.Empty;
+        public string ComplementoInstrucao4 { get; set; } = string.Empty;
 
         public string MensagemInstrucoesCaixa { get; set; } = string.Empty;
         public string MensagemArquivoRemessa { get; set; } = string.Empty;

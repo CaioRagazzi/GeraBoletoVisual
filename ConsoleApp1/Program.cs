@@ -9,95 +9,38 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            IBanco _banco;
-            var nossoNumero = "00000012345";
-            var aceite = "N";
+            Model.Boleto boletoModel = new Model.Boleto();
 
-            var contaBancaria = new ContaBancaria
+            boletoModel.ClienteCedente = new Model.Cliente
             {
-                Agencia = "3392",
-                DigitoAgencia = "0",
-                Conta = "0000340",
-                DigitoConta = "9",
-                CarteiraPadrao = "09",
-                TipoCarteiraPadrao = TipoCarteira.CarteiraCobrancaSimples,
-                TipoFormaCadastramento = TipoFormaCadastramento.ComRegistro,
-                TipoImpressaoBoleto = TipoImpressaoBoleto.Empresa
+                CpfCnpj = "361.908.418-13",
+                NomeRazao = "Cliente Cedente"
             };
+            boletoModel.NossoNumero = "00000012345";
+            boletoModel.EnderecoLogradouro = "Rua monlevade";
+            boletoModel.NumeroLogradouro = "128";
+            boletoModel.ComeplementoLogradouro = "Casa";
+            boletoModel.BairroLogradouro = "Vila Romano";
+            boletoModel.CidadeLogradouro = "São Paulo";
+            boletoModel.EstadoLogradouro = "SP";
+            boletoModel.CepLogradouro = "04679-345";
+            boletoModel.DocumentoSacado = "361.908.418-13";
+            boletoModel.NomeSacado = "Caio Eduardo Ragazzi Gemignani";
+            boletoModel.DataCadastro = new DateTime(2019, 4, 22);
+            boletoModel.DataProcessamento = new DateTime(2019, 4, 22);
+            boletoModel.DataVencimento = new DateTime(2019, 4, 22).AddMonths(1);
+            boletoModel.ValorBoleto = 35.40M;
+            boletoModel.NumeroDocumento = "99999999";
+            boletoModel.Instrucao1 = "Instrução 1";
+            boletoModel.Instrucao2 = "Instrução 2";
+            boletoModel.Instrucao3 = "Instrução 3";
+            boletoModel.Instrucao4 = "Instrução 4";
+            boletoModel.PercentualMulta = 10M;
+            boletoModel.ValorMulta = 20M;
+            boletoModel.PercentualJuros = 30M;
+            boletoModel.ValorJuros = 40M;
 
-            var cedente = new Cedente
-            {
-                CPFCNPJ = "23.322.675/0001-52",
-                Nome = "INTERMEIO SOLUCOES EM PAGAMENTOS",
-                Codigo = "1213141",
-                CodigoDV = "",
-                Endereco = new Endereco
-                {
-                    LogradouroEndereco = "Rua Teste do Cedente",
-                    LogradouroNumero = "789",
-                    LogradouroComplemento = "Cj 333",
-                    Bairro = "Bairro",
-                    Cidade = "Cidade",
-                    UF = "SP",
-                    CEP = "65432987"
-                },
-                ContaBancaria = contaBancaria
-            };
-
-            var sacado = new Sacado
-            {
-                CPFCNPJ = "23.322.675/0001-52",
-                Nome = "Bruno Intermeio Burgues",
-                Observacoes = "OBSERVAÇÃO",
-                Endereco = new Endereco
-                {
-                    LogradouroEndereco = "Rua Juréia",
-                    LogradouroNumero = "834",
-                    Bairro = "Chácara Inglesa",
-                    Cidade = "São Paulo",
-                    UF = "SP",
-                    CEP = "04140110"
-                }
-            };
-
-            _banco = Banco.Instancia(Bancos.Bradesco);
-            _banco.Cedente = cedente;
-            _banco.FormataCedente();
-
-            var boleto = new Boleto(_banco)
-            {
-                Sacado = sacado, //GerarSacado(),
-                DataEmissao = DateTime.Now,
-                DataProcessamento = DateTime.Now,
-                DataVencimento = new DateTime(2019, 03, 23),
-                ValorTitulo = (decimal)90.00,
-                NossoNumero = nossoNumero == "" ? "" : nossoNumero,
-                NumeroDocumento = "BB" + 2.ToString("D6") + (char)(64 + 2),
-                EspecieDocumento = TipoEspecieDocumento.DM,
-                Aceite = aceite,
-                CodigoInstrucao1 = "11",
-                CodigoInstrucao2 = "22",
-                DataDesconto = DateTime.Now.AddMonths(2),
-                ValorDesconto = (decimal)(100 * 2 * 0.10),
-                DataMulta = new DateTime(2019, 03, 20),
-                PercentualMulta = (decimal)2.00,
-                ValorMulta = (decimal)03.13,
-                DataJuros = DateTime.Now.AddMonths(2),
-                PercentualJurosDia = (decimal)0.2,
-                ValorJurosDia = (decimal)(100 * 2 * (0.2 / 100)),
-                MensagemArquivoRemessa = "Mensagem para o arquivo remessa",
-                NumeroControleParticipante = "CHAVEPRIMARIA=" + 2,
-                ValorAbatimento = (decimal)03.00,
-                ValorOutrasDespesas = (decimal)08.00,
-                ValorOutrosCreditos = (decimal)06.00,
-                CarteiraImpressaoBoleto = "009",
-            };
-
-            //Utils.RenderizaBoletos(_banco, TipoArquivo.CNAB400, "BancoBradescoCarteira09", 1, "N", "00000012345");
-
-            //var html = Utils2.RenderizaBoletos(boleto, TipoArquivo.CNAB400, "BancoBradescoCarteira09");
-            bool usaCssHtml = false;
-            var html = BoletoNetCore.Util.BoletoHtml.RenderizaBoletos(boleto, usaCssHtml: usaCssHtml);
+            var stringHtml = BoletoNetCore.Util.BoletoHtml.GeraBoleto(boletoModel);
         }
     }
 }

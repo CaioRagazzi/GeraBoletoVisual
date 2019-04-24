@@ -7,14 +7,20 @@ namespace BoletoNetCore.Util
 {
     public static class BoletoHtml
     {
-        public static object GeraBoleto(Model.Boleto boletoModel)
+        public static DefaultOfPagination GeraBoleto(Model.Boleto boletoModel)
         {
             try
             {
                 var retorno = new Validator.ValidaRenderBoleto().Validate(boletoModel);
 
                 if (retorno.Errors.Count > 0)
-                    return retorno.Errors;
+                {
+                    return new DefaultOfPagination()
+                    {
+                        Status =false,
+                        Resultado =  retorno.Errors
+                    };
+                }
 
                 IBanco _banco;
 
@@ -48,7 +54,7 @@ namespace BoletoNetCore.Util
                     {
                         LogradouroEndereco = boletoModel.EnderecoLogradouro,
                         LogradouroNumero = boletoModel.NumeroLogradouro,
-                        LogradouroComplemento = boletoModel.ComeplementoLogradouro,
+                        LogradouroComplemento = boletoModel.ComplementoLogradouro,
                         Bairro = boletoModel.BairroLogradouro,
                         Cidade = boletoModel.CidadeLogradouro,
                         UF = boletoModel.EstadoLogradouro,
@@ -82,11 +88,20 @@ namespace BoletoNetCore.Util
                     CarteiraImpressaoBoleto = boletoModel.ContaEmissao.Carteira,
                 };
 
-                return RenderizaBoletos(boleto);
+                return new DefaultOfPagination()
+                {
+                    Status = true,
+                    Resultado = RenderizaBoletos(boleto)
+                };
+
             }
             catch (Exception ex)
             {
-                return $"Message {ex.Message} ==> Trace {ex.StackTrace} ";
+                return new DefaultOfPagination()
+                {
+                    Status = false,
+                    Resultado = $"Message {ex.Message} ==> Trace {ex.StackTrace} "
+            };
             }
         }
 

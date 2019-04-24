@@ -411,10 +411,10 @@ namespace BoletoNetCore
         {
             html.Append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
             html.Append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
-            html.Append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n");
+            html.Append("<meta http-equiv=\"Content-Type\" content=\"text/html;\">\n");
             html.Append("<meta charset=\"utf-8\"/>\n");
             html.Append("<head>");
-            html.Append("    <title>Boleto.Net</title>\n");
+            html.Append("    <title>Boleto Intermeio Soluções</title>\n");
 
             #region Css
             if (usaCssHtml)

@@ -1,4 +1,5 @@
 ﻿using BoletoNetCore;
+using BoletoNetCore.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -145,7 +146,7 @@ namespace ConsoleApp1
             grupoDemonstrativo.Itens.Add(new ItemDemonstrativo { Descricao = "Grupo 3, Item 4", Referencia = boleto.DataEmissao.AddMonths(+1).Month + "/" + boleto.DataEmissao.AddMonths(+1).Year, Valor = boleto.ValorTitulo * (decimal)0.08 });
             boleto.Demonstrativos.Add(grupoDemonstrativo);
 
-            boleto.ValidarDados();
+            boleto.FormataDados();
             _contador++;
             _proximoNossoNumero++;
             return boleto;

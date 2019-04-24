@@ -447,7 +447,7 @@
 				&lt;tr class="rc6"&gt;
 						&lt;td class="w478"&gt;
 								&lt;div class="ctN pL10"&gt;Instruções (Texto de responsabilidade do beneficiário)&lt;/div&gt;
-								&lt;div class="cpN pL10"&gt;@INSTRUCOES&lt;/div&gt;
+								&lt;div class="cpN pL10 qli"&gt;@INSTRUCOES&lt;/div&gt;
 						&lt;/td&gt;
 						&lt;td class="w182"&gt;
 								&lt;div class="t"&gt;(-) Desconto / Abatimentos&lt;/div&gt;
@@ -582,7 +582,7 @@
 						&lt;td class="w180 Ar"&gt;Autenticação mecânica&lt;/td&gt;
 				&lt;/tr&gt;
 				&lt;tr class="cpN h12"&gt;
-						&lt;td class="pL6"&gt;@MENSAGEMFIXASACADO@INSTRUCOES&lt;/td&gt;
+						&lt;td class="pL6 qli"&gt;@MENSAGEMFIXASACADO@INSTRUCOES&lt;/td&gt;
 						&lt;td class="pL6 Ar"&gt;@AUTENTICACAOMECANICA&lt;/td&gt;
 				&lt;/tr&gt;
 		&lt;/table&gt;</value>

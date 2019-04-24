@@ -4,12 +4,12 @@ using static System.String;
 
 namespace BoletoNetCore
 {
-    [CarteiraCodigo("09")]
-    internal class BancoBradescoCarteira09 : ICarteira<BancoBradesco>
+    [CarteiraCodigo("9")]
+    internal class BancoBradescoCarteira9 : ICarteira<BancoBradesco>
     {
-        internal static Lazy<ICarteira<BancoBradesco>> Instance { get; } = new Lazy<ICarteira<BancoBradesco>>(() => new BancoBradescoCarteira09());
+        internal static Lazy<ICarteira<BancoBradesco>> Instance { get; } = new Lazy<ICarteira<BancoBradesco>>(() => new BancoBradescoCarteira9());
 
-        private BancoBradescoCarteira09()
+        private BancoBradescoCarteira9()
         {
 
         }
@@ -41,7 +41,7 @@ namespace BoletoNetCore
         public string FormataCodigoBarraCampoLivre(Boleto boleto)
         {
             var contaBancaria = boleto.Banco.Cedente.ContaBancaria;
-            return $"{contaBancaria.Agencia}{boleto.Carteira}{boleto.NossoNumero}{contaBancaria.Conta}{"0"}";
+            return $"{contaBancaria.Agencia}{boleto.Carteira.PadLeft(2,'0')}{boleto.NossoNumero}{contaBancaria.Conta}{"0"}";
         }
     }
 }

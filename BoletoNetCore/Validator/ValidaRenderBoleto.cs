@@ -62,8 +62,8 @@ namespace BoletoNetCore.Validator
             RuleFor(x => x.NumeroLogradouro)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage("É necessário ter um NumeroLogradouro.");
 
-            RuleFor(x => x.ComplementoLogradouro)
-                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage("É necessário ter um ComplementoLogradouro.");
+            //RuleFor(x => x.ComplementoLogradouro)
+            //    .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage("É necessário ter um ComplementoLogradouro.");
 
             RuleFor(x => x.BairroLogradouro)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage("É necessário ter um BairroLogradouro.");

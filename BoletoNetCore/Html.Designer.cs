@@ -525,7 +525,7 @@ namespace BoletoNetCore {
         ///				&lt;tr class=&quot;rc6&quot;&gt;
         ///						&lt;td class=&quot;w478&quot;&gt;
         ///								&lt;div class=&quot;ctN pL10&quot;&gt;Instruções (Texto de responsabilidade do beneficiário)&lt;/div&gt;
-        ///								&lt;div class=&quot;cpN pL10&quot;&gt;@INSTRUCOES&lt;/div&gt;
+        ///								&lt;div class=&quot;cpN pL10 qli&quot;&gt;@INSTRUCOES&lt;/div&gt;
         ///						&lt;/td&gt;
         ///						&lt;td class=&quot;w182&quot;&gt;
         ///								&lt;div class=&quot;t&quot;&gt;(-) Desconto / Abatimentos&lt;/div&gt;
@@ -533,7 +533,7 @@ namespace BoletoNetCore {
         ///								&lt;div class=&quot;t&quot;&gt;(-) Outras deduções&lt;/div&gt;
         ///								&lt;div class=&quot;c BB Ar&quot;&gt;@OUTRASDEDUCOES&lt;/div&gt;
         ///								&lt;div class=&quot;t&quot;&gt;(+) Mora / Multa&lt;/div&gt;
-        ///								&lt;di [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///							 [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string ReciboCedenteParte6 {
             get {
@@ -751,7 +751,7 @@ namespace BoletoNetCore {
         ///						&lt;td class=&quot;w180 Ar&quot;&gt;Autenticação mecânica&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///				&lt;tr class=&quot;cpN h12&quot;&gt;
-        ///						&lt;td class=&quot;pL6&quot;&gt;@MENSAGEMFIXASACADO@INSTRUCOES&lt;/td&gt;
+        ///						&lt;td class=&quot;pL6 qli&quot;&gt;@MENSAGEMFIXASACADO@INSTRUCOES&lt;/td&gt;
         ///						&lt;td class=&quot;pL6 Ar&quot;&gt;@AUTENTICACAOMECANICA&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///		&lt;/table&gt;.

@@ -1,4 +1,5 @@
 ﻿using System;
+using BoletoNetCore.Enums;
 using BoletoNetCore.Extensions;
 using static System.String;
 

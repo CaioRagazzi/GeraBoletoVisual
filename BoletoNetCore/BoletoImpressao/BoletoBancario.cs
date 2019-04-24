@@ -356,21 +356,7 @@ namespace BoletoNetCore
                 .Replace("@QUANTIDADE", (Boleto.QuantidadeMoeda == 0 ? "" : Boleto.QuantidadeMoeda.ToString()))
                 .Replace("@VALORDOCUMENTO", Boleto.ValorMoeda)
                 .Replace("@=VALORDOCUMENTO", (Boleto.ValorTitulo == 0 ? "" : Boleto.ValorTitulo.ToString("R$ ##,##0.00")))
-                .Replace("@VALORCOBRADO",
-                    Decimal.Subtract
-                    (
-                        Decimal.Add
-                        (
-                            Boleto.ValorTitulo, Decimal.Add
-                                                (
-                                                    (decimal)10.00, Boleto.ValorOutrosCreditos
-                                                )
-                        ),
-                        Decimal.Add
-                        (
-                            Boleto.ValorAbatimento, Boleto.ValorOutrasDespesas
-                        )
-                    ).ToString("R$ ##,##0.00"))
+                .Replace("@VALORCOBRADO", ((Boleto.ValorTitulo - Boleto.ValorAbatimento - Boleto.ValorOutrasDespesas) + (Boleto.ValorMulta + Boleto.ValorOutrosCreditos)).ToString("R$ ##,##0.00"))
                 .Replace("@OUTROSACRESCIMOS", Boleto.ValorOutrosCreditos.ToString("R$ ##,##0.00"))
                 .Replace("@OUTRASDEDUCOES", Boleto.ValorOutrasDespesas.ToString("R$ ##,##0.00"))
                 .Replace("@DESCONTOS", Boleto.ValorAbatimento.ToString("R$ ##,##0.00"))
@@ -380,7 +366,7 @@ namespace BoletoNetCore
                 .Replace("@AVALISTA", avalista)
                 .Replace("@AGENCIACODIGOCEDENTE", Boleto.Banco.Cedente.CodigoFormatado)
                 .Replace("@CPFCNPJ", Boleto.Banco.Cedente.CPFCNPJ)
-                .Replace("@MORAMULTA", ((decimal)10.00).ToString("R$ ##,##0.00"))
+                .Replace("@MORAMULTA", Boleto.ValorMulta.ToString("R$ ##,##0.00"))
                 .Replace("@AUTENTICACAOMECANICA", "")
                 .Replace("@USODOBANCO", Boleto.UsoBanco)
                 .Replace("@IMAGEMCODIGOBARRA", imagemCodigoBarras)

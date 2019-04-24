@@ -1,4 +1,4 @@
-﻿namespace BoletoNetCore
+﻿namespace BoletoNetCore.Enums
 {
     public enum TipoCarteira
     {

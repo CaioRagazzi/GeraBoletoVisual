@@ -1,3 +1,4 @@
+using BoletoNetCore.Enums;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -121,37 +122,37 @@ namespace BoletoNetCore
         public CodigoBarra CodigoBarra { get; } = new CodigoBarra();
         public ObservableCollection<GrupoDemonstrativo> Demonstrativos { get; } = new ObservableCollection<GrupoDemonstrativo>();
 
-        public void ValidarDados()
+        public void FormataDados()
         {
-            // Banco Obrigatório
-            if (Banco == null)
-                throw new Exception("Boleto não possui Banco.");
+            //// Banco Obrigatório
+            //if (Banco == null)
+            //    throw new Exception("Boleto não possui Banco.");
 
-            // Cedente Obrigatório
-            if (Banco.Cedente == null)
-                throw new Exception("Boleto não possui cedente.");
+            //// Cedente Obrigatório
+            //if (Banco.Cedente == null)
+            //    throw new Exception("Boleto não possui cedente.");
 
-            // Conta Bancária Obrigatória
-            if (Banco.Cedente.ContaBancaria == null)
-                throw new Exception("Boleto não possui conta bancária.");
+            //// Conta Bancária Obrigatória
+            //if (Banco.Cedente.ContaBancaria == null)
+            //    throw new Exception("Boleto não possui conta bancária.");
 
-            // Sacado Obrigatório
-            if (Sacado == null)
-                throw new Exception("Boleto não possui sacado.");
+            //// Sacado Obrigatório
+            //if (Sacado == null)
+            //    throw new Exception("Boleto não possui sacado.");
 
-            // Verifica se data do processamento é valida
-            if (DataProcessamento == DateTime.MinValue)
-                DataProcessamento = DateTime.Now;
+            //// Verifica se data do processamento é valida
+            //if (DataProcessamento == DateTime.MinValue)
+            //    DataProcessamento = DateTime.Now;
 
-            // Verifica se data de emissão é valida
-            if (DataEmissao == DateTime.MinValue)
-                DataEmissao = DateTime.Now;
+            //// Verifica se data de emissão é valida
+            //if (DataEmissao == DateTime.MinValue)
+            //    DataEmissao = DateTime.Now;
 
-            // Aceite
-            if ((Aceite != "A") & (Aceite != "N"))
-                throw new Exception("Aceite do Boleto deve ser definido com A ou N");
+            //// Aceite
+            //if ((Aceite != "A") & (Aceite != "N"))
+            //    throw new Exception("Aceite do Boleto deve ser definido com A ou N");
 
-            Banco.ValidaBoleto(this);
+            //Banco.ValidaBoleto(this);
             Banco.FormataNossoNumero(this);
             BoletoNetCore.Banco.FormataCodigoBarra(this);
             BoletoNetCore.Banco.FormataLinhaDigitavel(this);

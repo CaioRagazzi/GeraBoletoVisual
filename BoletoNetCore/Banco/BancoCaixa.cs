@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BoletoNetCore.Enums;
 using BoletoNetCore.Exceptions;
 using static System.String;
 

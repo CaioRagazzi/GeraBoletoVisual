@@ -38,8 +38,8 @@ namespace BoletoNetCore.Util
 
                 Cedente cedente = new Cedente
                 {
-                    CPFCNPJ = boletoModel.ClienteCedente.CpfCnpj,
-                    Nome = boletoModel.ClienteCedente.NomeRazao,
+                    CPFCNPJ = boletoModel.ContaEmissao.Cnpj,
+                    Nome = string.IsNullOrWhiteSpace(boletoModel.SoftDescript) ? boletoModel.ContaEmissao.NomeCedente + " / " + boletoModel.ClienteCedente.NomeRazao : boletoModel.SoftDescript,
                     Codigo = "Codigo Cedente",
                     CodigoDV = "Codigo DV Cedente",
                     ContaBancaria = contaBancaria

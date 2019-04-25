@@ -149,7 +149,7 @@ namespace BoletoNetCore {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr class=&quot;BHead&quot;&gt;
-        ///						&lt;td class=&quot;imgLogo Al&quot;&gt;&lt;img src=&quot;@URLIMAGEMLOGO&quot; /&gt;&lt;/td&gt;
+        ///						&lt;td class=&quot;imgLogo Al BL&quot;&gt;&lt;img src=&quot;@URLIMAGEMLOGO&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;w65 Ab bc Ac&quot;&gt;@CODIGOBANCO-@DIGITOBANCO&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;
@@ -357,7 +357,7 @@ namespace BoletoNetCore {
         ///						&lt;td class=&quot;w666&quot; /&gt;
         ///				&lt;/tr&gt;
         ///				&lt;tr&gt;
-        ///						&lt;td class=&quot;Ar&quot;&gt;Corte na linha pontilhada&lt;/td&gt;
+        ///						&lt;td class=&quot;Ar BL&quot;&gt;Corte na linha pontilhada&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///				&lt;tr&gt;
         ///						&lt;td class=&quot;cut&quot; /&gt;
@@ -374,7 +374,7 @@ namespace BoletoNetCore {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr class=&quot;BHead&quot;&gt;
-        ///						&lt;td class=&quot;imgLogo Al&quot;&gt;&lt;img src=&quot;@URLIMAGEMLOGO&quot; /&gt;&lt;/td&gt;
+        ///						&lt;td class=&quot;imgLogo Al BL&quot;&gt;&lt;img src=&quot;@URLIMAGEMLOGO&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;w65 Ab bc Ac&quot;&gt;@CODIGOBANCO-@DIGITOBANCO&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;
@@ -391,7 +391,7 @@ namespace BoletoNetCore {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666 ctN&quot;&gt;
         ///				&lt;tr&gt;
-        ///						&lt;td class=&quot;pL6  w409&quot;&gt;Sacador / Avalista &lt;b class=&quot;cpN&quot;&gt;@AVALISTA&lt;/b&gt;&lt;/td&gt;
+        ///						&lt;td class=&quot;pL6  w409 BL&quot;&gt;Sacador / Avalista &lt;b class=&quot;cpN&quot;&gt;@AVALISTA&lt;/b&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;w250 Ar&quot;&gt;Autenticação mecânica - &lt;b class=&quot;cpN&quot;&gt;Ficha de Compensação&lt;/b&gt;&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///				&lt;!--&lt;tr class=&quot;h13&quot;&gt;&lt;td colspan=&quot;3&quot; /&gt;&lt;/tr&gt;--&gt;
@@ -406,7 +406,7 @@ namespace BoletoNetCore {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr&gt;
-        ///						&lt;td class=&quot;EcdBar Al pL10&quot;&gt;@IMAGEMCODIGOBARRA&lt;/td&gt;
+        ///						&lt;td class=&quot;EcdBar Al pL10 BL&quot;&gt;@IMAGEMCODIGOBARRA&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///		&lt;/table&gt;.
         /// </summary>
@@ -419,7 +419,7 @@ namespace BoletoNetCore {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;ctN w666&quot;&gt;
         ///				&lt;!--&lt;tr class=&quot;h13&quot;&gt;&lt;td /&gt;&lt;/tr&gt;--&gt;
-        ///				&lt;tr&gt;&lt;td class=&quot;Ar&quot;&gt;Corte na linha pontilhada&lt;/td&gt;&lt;/tr&gt;
+        ///				&lt;tr&gt;&lt;td class=&quot;Ar BL&quot;&gt;Corte na linha pontilhada&lt;/td&gt;&lt;/tr&gt;
         ///				&lt;tr&gt;&lt;td class=&quot;cut&quot; /&gt;&lt;/tr&gt;
         ///		&lt;/table&gt;
         ///		&lt;!--&lt;table class=&quot;ctN w666&quot;&gt;
@@ -462,7 +462,7 @@ namespace BoletoNetCore {
         ///						&lt;td class=&quot;w180&quot;&gt;Agência / Código Beneficiário&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///				&lt;tr class=&quot;cp h12 rBb&quot;&gt;
-        ///						&lt;td&gt;@CEDENTE_BOLETO@ENDERECOCEDENTE_BOLETO&lt;/td&gt;
+        ///						&lt;td&gt;@CEDENTE_BOLETO&lt;/td&gt;
         ///						&lt;td class=&quot;Ar&quot;&gt;@AGENCIACONTA&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///		&lt;/table&gt;.
@@ -523,7 +523,7 @@ namespace BoletoNetCore {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr class=&quot;rc6&quot;&gt;
-        ///						&lt;td class=&quot;w478&quot;&gt;
+        ///						&lt;td class=&quot;w478 BL&quot;&gt;
         ///								&lt;div class=&quot;ctN pL10&quot;&gt;Instruções (Texto de responsabilidade do beneficiário)&lt;/div&gt;
         ///								&lt;div class=&quot;cpN pL10 qli&quot;&gt;@INSTRUCOES&lt;/div&gt;
         ///						&lt;/td&gt;
@@ -533,7 +533,7 @@ namespace BoletoNetCore {
         ///								&lt;div class=&quot;t&quot;&gt;(-) Outras deduções&lt;/div&gt;
         ///								&lt;div class=&quot;c BB Ar&quot;&gt;@OUTRASDEDUCOES&lt;/div&gt;
         ///								&lt;div class=&quot;t&quot;&gt;(+) Mora / Multa&lt;/div&gt;
-        ///							 [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///				 [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string ReciboCedenteParte6 {
             get {
@@ -570,6 +570,8 @@ namespace BoletoNetCore {
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr class=&quot;rBb&quot;&gt;
         ///						&lt;td class=&quot;w478 BL&quot;&gt;
+        ///                                &lt;div class=&quot;ct pL6&quot; style=&quot;width: 474px;&quot;&gt;Pagador&lt;/div&gt;
+        ///                                &lt;div class=&quot;cpN pL6 qli&quot;&gt;@SACADO&lt;/div&gt;
         ///								&lt;div class=&quot;cpN pL6&quot;&gt;@ENDERECOSACADO&lt;/div&gt;
         ///						&lt;/td&gt;
         ///						&lt;td class=&quot;Ab BL&quot;&gt;
@@ -588,7 +590,7 @@ namespace BoletoNetCore {
         ///   Consulta uma cadeia de caracteres localizada semelhante a 
         ///			&lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr class=&quot;BHead BT2&quot;&gt;
-        ///						&lt;td class=&quot;imgLogo Al&quot;&gt;&lt;img src=&quot;@URLIMAGEMLOGO&quot; /&gt;&lt;/td&gt;
+        ///						&lt;td class=&quot;imgLogo Al BL&quot;&gt;&lt;img src=&quot;@URLIMAGEMLOGO&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;w65 Ab bc Ac&quot;&gt;@CODIGOBANCO-@DIGITOBANCO&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;
@@ -599,7 +601,7 @@ namespace BoletoNetCore {
         ///				&lt;tr class=&quot;ct h13&quot;&gt;
         ///						&lt;td&gt;Local de pagamento&lt;/td&gt;
         ///						&lt;td&gt;&lt;/td&gt;
-        ///				&lt;/tr&gt;			 [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///				&lt;/tr&gt; [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string ReciboCedenteRelatorioValores {
             get {
@@ -642,7 +644,7 @@ namespace BoletoNetCore {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666&quot;&gt;
         ///				&lt;tr class=&quot;BHead&quot;&gt;
-        ///						&lt;td class=&quot;imgLogo Al&quot;&gt;&lt;img src=&quot;@URLIMGCEDENTE&quot; /&gt;&lt;/td&gt;
+        ///						&lt;td class=&quot;imgLogo Al BL&quot;&gt;&lt;img src=&quot;@URLIMGCEDENTE&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;
         ///						&lt;td class=&quot;w65 Ab bc Ac&quot;&gt;@CODIGOBANCO-@DIGITOBANCO&lt;/td&gt;
         ///						&lt;td class=&quot;barra&quot;&gt;&lt;img src=&quot;@URLIMAGEMBARRA&quot; /&gt;&lt;/td&gt;						
@@ -730,7 +732,7 @@ namespace BoletoNetCore {
         ///				&lt;tr class=&quot;ct h13&quot;&gt;
         ///						&lt;td class=&quot;w659&quot;&gt;Pagador&lt;/td&gt;
         ///				&lt;/tr&gt;
-        ///				&lt;tr class=&quot;cp h12&quot;&gt;
+        ///				&lt;tr class=&quot;cp h12 qli&quot;&gt;
         ///						&lt;td&gt;@SACADO&lt;/td&gt;
         ///				&lt;/tr&gt;
         ///				&lt;tr class=&quot;cp h12 rBb&quot;&gt;
@@ -746,15 +748,16 @@ namespace BoletoNetCore {
         
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;w666&quot;&gt;
-        ///				&lt;tr class=&quot;ctN h13&quot;&gt;
-        ///						&lt;td class=&quot;pL6&quot;&gt;Instruções&lt;/td&gt;
-        ///						&lt;td class=&quot;w180 Ar&quot;&gt;Autenticação mecânica&lt;/td&gt;
-        ///				&lt;/tr&gt;
-        ///				&lt;tr class=&quot;cpN h12&quot;&gt;
-        ///						&lt;td class=&quot;pL6 qli&quot;&gt;@MENSAGEMFIXASACADO@INSTRUCOES&lt;/td&gt;
-        ///						&lt;td class=&quot;pL6 Ar&quot;&gt;@AUTENTICACAOMECANICA&lt;/td&gt;
-        ///				&lt;/tr&gt;
-        ///		&lt;/table&gt;.
+        ///    &lt;tr class=&quot;ctN h13 BL&quot;&gt;
+        ///            &lt;td class=&quot;pL6&quot;&gt;Instruções&lt;/td&gt;
+        ///            &lt;td class=&quot;w180 Ar&quot;&gt;Autenticação mecânica&lt;/td&gt;
+        ///    &lt;/tr&gt;
+        ///&lt;/table&gt;
+        ///&lt;table class=&quot;w666&quot;&gt;
+        ///    &lt;tr class=&quot;cpN h12 BL&quot;&gt;
+        ///        &lt;td class=&quot;pL6 qli&quot;&gt;@MENSAGEMFIXASACADO@INSTRUCOES&lt;/td&gt;
+        ///&lt;/tr&gt;
+        ///&lt;/table&gt;.
         /// </summary>
         internal static string ReciboSacadoParte7 {
             get {
@@ -764,9 +767,9 @@ namespace BoletoNetCore {
         
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a &lt;table class=&quot;ctN w666&quot;&gt;
-        ///				&lt;tr class=&quot;h13&quot;&gt;&lt;td /&gt;&lt;/tr&gt;
-        ///				&lt;tr class=&quot;h13&quot;&gt;&lt;td /&gt;&lt;/tr&gt;
-        ///				&lt;tr&gt;&lt;td class=&quot;Ar&quot;&gt;Corte na linha pontilhada&lt;/td&gt;&lt;/tr&gt;
+        ///				&lt;tr class=&quot;h13 BL&quot;&gt;&lt;td /&gt;&lt;/tr&gt;
+        ///				&lt;tr class=&quot;h13 BL&quot;&gt;&lt;td /&gt;&lt;/tr&gt;
+        ///				&lt;tr&gt;&lt;td class=&quot;Ar BL&quot;&gt;Corte na linha pontilhada&lt;/td&gt;&lt;/tr&gt;
         ///				&lt;tr&gt;&lt;td class=&quot;cut&quot; /&gt;&lt;/tr&gt;
         ///				&lt;tr class=&quot;h13&quot;&gt;&lt;td /&gt;&lt;/tr&gt;
         ///				&lt;tr class=&quot;h13&quot;&gt;&lt;td /&gt;&lt;/tr&gt;

@@ -157,7 +157,7 @@ namespace BoletoNetCore
                 html.Append(Html.ReciboCedenteParte5);
                 html.Append(Html.ReciboCedenteParte6);
                 html.Append(Html.ReciboCedenteParte7);
-                html.Append(Html.ReciboCedenteParte8);
+                //html.Append(Html.ReciboCedenteParte8);
                 html.Append(Html.ReciboCedenteParte9);
                 html.Append(Html.ReciboCedenteParte10);
                 html.Append(Html.ReciboCedenteParte11);
@@ -344,7 +344,7 @@ namespace BoletoNetCore
                 .Replace("@MENSAGEMFIXATOPOBOLETO", Boleto.Banco.Cedente.ContaBancaria.MensagemFixaTopoBoleto)
                 .Replace("@MENSAGEMFIXASACADO", Boleto.Banco.Cedente.ContaBancaria.MensagemFixaSacado)
                 .Replace("@DATAVENCIMENTO", dataVencimento)
-                .Replace("@CEDENTE_BOLETO", !Boleto.Banco.Cedente.MostrarCNPJnoBoleto ? Boleto.Banco.Cedente.Nome : string.Format("{0}  {1}", Boleto.Banco.Cedente.Nome, Utils.FormataCNPJ(Boleto.Banco.Cedente.CPFCNPJ)))
+                .Replace("@CEDENTE_BOLETO", !Boleto.Banco.Cedente.MostrarCNPJnoBoleto ? Boleto.Banco.Cedente.Nome : string.Format("{0}", Boleto.Banco.Cedente.Nome, Utils.FormataCNPJ(Boleto.Banco.Cedente.CPFCNPJ)))
                 .Replace("@CEDENTE", Boleto.Banco.Cedente.Nome)
                 .Replace("@DATADOCUMENTO", Boleto.DataEmissao.ToString("dd/MM/yyyy"))
                 .Replace("@NUMERODOCUMENTO", Boleto.NumeroDocumento)
